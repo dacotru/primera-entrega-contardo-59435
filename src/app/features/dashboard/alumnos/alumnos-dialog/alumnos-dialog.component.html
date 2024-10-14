@@ -1,6 +1,6 @@
-<h5 mat-dialog-title>
-  {{ data?.editingUser ? "Editando" : "Creando" }} Alumno
-</h5>
+<h1 mat-dialog-title appTitles>
+  {{ data?.editingUser ? "Editar" : "Crear" }} Alumno
+</h1>
 <mat-divider class="pb-4"></mat-divider>
 <div mat-dialog-content>
   <form [formGroup]="userForm">

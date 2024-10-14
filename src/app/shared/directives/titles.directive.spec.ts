@@ -1,8 +1,10 @@
-import { TitlesDirective } from './titles.directive';
+import { Directive, ElementRef, Renderer2 } from '@angular/core';
 
-describe('TitlesDirective', () => {
-  it('should create an instance', () => {
-    const directive = new TitlesDirective();
-    expect(directive).toBeTruthy();
-  });
-});
+@Directive({
+  selector: '[titles]'
+})
+export class TitlesDirective {
+  constructor(private el: ElementRef, private renderer: Renderer2) {
+    this.renderer.setStyle(this.el.nativeElement, 'font-size', '10px');
+  }
+}
