@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { DashboardModule } from './features/dashboard/dashboard.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AuthComponent } from './features/auth/auth.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,

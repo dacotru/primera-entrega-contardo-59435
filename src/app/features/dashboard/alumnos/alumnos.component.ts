@@ -10,7 +10,7 @@ import { UsersService } from '../../../core/services/users.service';
   styleUrl: './alumnos.component.scss',
 })
 export class AlumnosComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'email', 'createdAt', 'actions' ];
+  displayedColumns: string[] = ['id', 'name', 'email', 'createdAt', 'actions'];
   dataSource: Alumnos[] = [];
 
   isLoading = false;
@@ -46,7 +46,6 @@ export class AlumnosComponent implements OnInit {
 
   onDelete(id: string) {
     if (confirm('¿Estás seguro que quieres eliminar este alumno?')) {
-      // this.dataSource = this.dataSource.filter((user) => user.id !== id);
       this.isLoading = true;
       this.usersService.removeUserById(id).subscribe({
         next: (users) => {
