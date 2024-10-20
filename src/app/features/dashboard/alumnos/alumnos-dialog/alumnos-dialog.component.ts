@@ -2,10 +2,10 @@ import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { generateRandomString } from '../../../../shared/utils';
-import { Alumnos } from '../models';
+import { Alumno } from '../models';
 
 interface UserDialogData {
-  editingUser?: Alumnos;
+  editingUser?: Alumno;
 }
 
 @Component({
@@ -24,7 +24,7 @@ export class AlumnosDialogComponent {
     this.userForm = this.formBuilder.group({
       firstName: [null, [Validators.required, Validators.minLength(3), Validators.pattern(/^[a-zA-Z]*$/)]],
       lastName: [null, [Validators.required, Validators.minLength(3), Validators.pattern(/^[a-zA-Z]*$/)]],
-      email: [null, [Validators.required, Validators.email]], // La validación de email ya incluye un formato válido
+      email: [null, [Validators.required, Validators.email]], 
     });
     this.patchFormValue();
   }

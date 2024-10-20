@@ -1,11 +1,11 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Alumnos } from '../../features/dashboard/alumnos/models';
+import { Alumno } from '../../features/dashboard/alumnos/models';
 
 @Pipe({
   name: 'userFullName',
 })
 export class UserFullNamePipe implements PipeTransform {
-  transform(value: Alumnos, transform?: 'uppercase'): string {
+  transform(value: Alumno, transform?: 'uppercase'): string {
     const result = value.firstName + ' ' + value.lastName;
 
     if (transform === 'uppercase') {

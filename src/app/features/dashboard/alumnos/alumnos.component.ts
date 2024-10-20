@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AlumnosDialogComponent } from './alumnos-dialog/alumnos-dialog.component';
-import { Alumnos } from './models';
-import { UsersService } from '../../../core/services/users.service';
+import { Alumno } from './models';
+import { UsersService } from '../../../core/services/alumnos.service';
 
 @Component({
   selector: 'app-alumnos',
@@ -11,7 +11,7 @@ import { UsersService } from '../../../core/services/users.service';
 })
 export class AlumnosComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'email', 'createdAt', 'actions'];
-  dataSource: Alumnos[] = [];
+  dataSource: Alumno[] = [];
 
   isLoading = false;
 
@@ -61,7 +61,7 @@ export class AlumnosComponent implements OnInit {
     }
   }
 
-  openModal(editingUser?: Alumnos): void {
+  openModal(editingUser?: Alumno): void {
     this.matDialog
       .open(AlumnosDialogComponent, {
         data: {
@@ -83,7 +83,7 @@ export class AlumnosComponent implements OnInit {
   }
 
 
-  handleUpdate(id: string, update: Alumnos): void {
+  handleUpdate(id: string, update: Alumno): void {
     this.isLoading = true;
     this.usersService.updateUserById(id, update).subscribe({
       next: (users) => {
